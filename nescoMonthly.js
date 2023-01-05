@@ -1,9 +1,11 @@
 (function(){
                       var json={'ownerName': '','address': '','phone': '','balance': '','error': '','custID': '','updated': {'date':'','month':'','year':''},'consumerMonthData': {}};
                       json['error']=document.evaluate('/html/body/div[1]/div/div/div/div[4]/div/div[2]/form/div[1]/div/label', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerHTML;
+                      var forms = document.getElementsByTagName('form');
+                      json['error']=forms[0].getElementsByTagName('label')[1].innerHTML;//document.evaluate('/html/body/div[1]/div/div/div/div[4]/div/div[2]/form/div[1]/div/label', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerHTML;
+                      console.log(forms[0].getElementsByTagName('label')[1].innerHTML,'<<<');
                       if (json['error']=='') {
                       console.log('###########################################');
-                      var forms = document.getElementsByTagName('form');
                       var formTwoInputs = {};
                       aa=[];
                       bb=[];
@@ -64,9 +66,9 @@
                           var _data = _arr.split(",");
                           json["consumerMonthData"][_data[0]+map[_data[1]]]={
                             "year":_data[0],
-                            "month":_data[1],
+                            "month":map[_data[1]],
                             "recharge":_data[2],
-                            "fine":_data[3],
+                            "rayat":_data[3],
                             "bill":_data[4],
                             "meterRent":_data[5],
                             "demandCharge":_data[6],
