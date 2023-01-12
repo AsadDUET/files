@@ -73,4 +73,6 @@
                         };
                     }
                     // console.log(JSON.stringify(json));
-                  Flutter.postMessage(JSON.stringify(json))})();
+                  Flutter.postMessage(JSON.stringify(json));
+                  document.getElementsByName("usage_hist")[0].click();
+                  })();
